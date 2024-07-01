@@ -1,0 +1,67 @@
+<div class="container mt-3">
+  <h3>Random Password Generator</h3>
+  <div class="container mt-5" >
+    <form action="/generate">
+      <div class="row mb-3" >
+        <label for="passwordLength" class="col-sm-2 col-form-label col-sm-2">Password Length</label>
+        <div class="col-sm-10 row align-items-center">
+          <div class="col-3">
+            <input type="number" class="form-control" id="passwordLength" min="4" max="16" placeholder="8">
+          </div>
+          <div class="col-7">
+            <span id="passwordRange" class="form-text"> 
+              Length is available between 4-16 Character 
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0 col-5">Includes</legend>
+        <div class="col-sm-10 row">
+          <div class="col-5"></div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="lowercase" id="lowercaseChar" value="lowercase" >
+              <label class="form-check-label" for="lowercaseChar">
+              Lowercase Characters 
+              </label>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-text"> e.g. abcdefg </div>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="uppercase" id="uppercaseChar" value="uppercase" >
+            <label class="form-check-label" for="uppercaseChar">
+              Uppercase Characters
+            </label>
+            <div class="form-text"> e.g. ABCDEFG </div>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="numbers" id="numberChar" value="numbers">
+            <label class="form-check-label" for="numberChar">
+              Number
+            </label>
+            <div class="form-text"> e.g. 1234567 </div>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="symbols" id="symbolChar" value="symbols">
+            <label class="form-check-label" for="symbolChar">
+              Symbols 
+            </label>
+            <div class="form-text"> e.g. !@~$*# </div>
+          </div>
+          
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary mt-3">Generate</button>
+
+
+
+    </form>
+  </div>
+</div>
