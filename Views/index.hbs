@@ -1,12 +1,12 @@
 <div class="container mt-3">
   <h3>Random Password Generator</h3>
   <div class="container mt-5" >
-    <form action="/generate">
+    <form action="/" method="post">
       <div class="row mb-3" >
         <label for="passwordLength" class="col-sm-2 col-form-label col-sm-2">Password Length</label>
         <div class="col-sm-10 row align-items-center">
           <div class="col-3">
-            <input type="number" class="form-control" id="passwordLength" min="4" max="16" placeholder="8">
+            <input type="number" class="form-control" id="passwordLength" min="4" max="16" placeholder="8" name="length" required>
           </div>
           <div class="col-7">
             <span id="passwordRange" class="form-text"> 
@@ -22,10 +22,10 @@
 
           <div class="row mb-2">
             <div class="col-auto">
-              <input class="form-check-input" type="checkbox" name="lowercase" id="lowercaseChar" value="lowercase">
+              <input class="form-check-input" type="checkbox" name="lowercase" id="lowercaseChar" value="on">
             </div>
-            <div class="col-sm-3">
-              <label class="form-check-label" for="lowercaseChar">Lowercase Characters</label>
+            <div class="col-sm-auto">
+              <label class="form-check-label" for="lowercaseChar">Lowercase</label>
             </div>
             <div class="col-sm-auto">
               <div class="form-text"> e.g. abcdefg </div>
@@ -34,10 +34,10 @@
             
           <div class="row mb-2">
             <div class="col-auto">
-              <input class="form-check-input" type="checkbox" name="uppercase" id="uppercaseChar" value="uppercase">
+              <input class="form-check-input" type="checkbox" name="uppercase" id="uppercaseChar" value="on">
             </div>
-            <div class="col-sm-3">
-              <label class="form-check-label" for="uppercaseChar">Uppercase Characters</label>
+            <div class="col-auto">
+              <label class="form-check-label" for="uppercaseChar">Uppercase</label>
             </div>
             <div class="col-sm-auto">
               <div class="form-text"> e.g. ABCDEFG </div>
@@ -46,9 +46,9 @@
 
           <div class="row mb-2">
             <div class="col-auto">
-              <input class="form-check-input" type="checkbox" name="numbers" id="numberChar" value="numbers">
+              <input class="form-check-input" type="checkbox" name="numbers" id="numberChar" value="on">
             </div>
-            <div class="col-sm-3">
+            <div class="col-auto">
               <label class="form-check-label" for="numberChar">Numbers</label>
             </div>
             <div class="col-sm-auto">
@@ -58,20 +58,35 @@
 
           <div class="row mb-2">
             <div class="col-auto">
-              <input class="form-check-input" type="checkbox" name="symbols" id="symbolChar" value="symbols">
+              <input class="form-check-input" type="checkbox" name="symbols" id="symbolChar" value="on">
             </div>
-            <div class="col-sm-3">
+            <div class="col-auto">
               <label class="form-check-label" for="symbolChar">Symbols</label>
             </div>
             <div class="col-sm-auto">
               <div class="form-text"> e.g. !@~$*# </div>
             </div>
           </div>
-       
+
         </div>
       </fieldset>
 
-      <button type="submit" class="btn btn-primary mt-3">Generate</button>
+      <div class="row mb-3">
+        <label for="excludeChar" class="col-sm-2 col-form-label col-sm-2">Exclude Characters</label>
+        <div class="col-sm-10 row align-items-center">
+          <div class="col-3">
+            <input type="text" class="form-control" id="excludeChar" name="exclude" value="on" >
+          </div>
+          <div class="col-7">
+            <span id="passwordRange" class="form-text">
+              These characters won't appear in the password
+            </span>
+          </div>
+        </div>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary mt-3" >Generate</button>
 
 
 
