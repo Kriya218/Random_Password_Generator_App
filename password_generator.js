@@ -3,7 +3,7 @@ const uppercase = lowercase.toUpperCase() ;
 const numbers = '0123456789';
 const symbols = '!@#$%^&*()_+/?<>,.{}[]|;、`';
 
-// get an array according to conditions
+// create an array according to selections
 function generatePassword(includes) {
   let optionsArr = [];
 
@@ -22,26 +22,18 @@ function generatePassword(includes) {
   if (includes.symbols === 'on') {
     optionsArr = optionsArr.concat(Array.from(symbols))
   };
-
+  
+// remove exclude characters
   if (includes.exclude) {
     optionsArr = optionsArr.filter((char) => {
-      return !(includes.exclude).includes(char)   // 下方簡化版
+      return !(includes.exclude).includes(char)   
     })
   }
-  
-  // if (includes.exclude) {                       若排除字元存在
-  //   optionsArr = optionsArr.filter((char) => {  過濾陣列所有元素 
-  //     if ((includes.exclude).includes(char)) {  若要排除的字串裡包含該元素
-  //       return false                            返回 false (不符條件，從陣列剔除)
-  //     };
-  //     return true;                              否則返回 true (符合條件，加入到陣列)
-  //   })
-  // }
 
-  return getPasswords(optionsArr, includes);  // 將此 return getPasswords中產生的 password 才會一起被導出
+  return getPasswords(optionsArr, includes);  
 }
 
-//generate pw according to length
+//generate pw according to length based on optionsArr
 function getPasswords(optionsArr, includes) {
   if (optionsArr.length === 0 ) {
     return 'There is no valid result according to your selection.'
