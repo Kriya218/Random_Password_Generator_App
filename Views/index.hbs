@@ -1,14 +1,17 @@
-<div class="container mt-3">
-  <h3>Random Password Generator</h3>
-  <div class="container mt-5" >
-    <form action="/" method="post">
+
+  <div class="container mt-5 col-sm-6" >
+    <form action="/" method="post" class="px-3 py-3" style="background-color: #fff2cc;">
+      <h3 class="fw-bold mb-3">
+        <a href="http://localhost:3000/" style="text-decoration:none; color:#646c70;">Random Password Generator</a>
+      </h3>
+      <hr>
       <div class="row mb-3" >
-        <label for="passwordLength" class="col-sm-2 col-form-label col-sm-2">Password Length</label>
-        <div class="col-sm-10 row align-items-center">
-          <div class="col-3">
-            <input type="number" class="form-control" id="passwordLength" min="4" max="16" placeholder="8" name="length" required>
+        <label for="passwordLength" class="col-sm-3 col-form-label">Password Length</label>
+        <div class="col-9 row align-items-center">
+          <div class="col-sm-4">
+            <input type="number" class="form-control" id="passwordLength" min="4" max="16" placeholder="8" name="pwLength"  value="{{conditions.pwLength}}">
           </div>
-          <div class="col-7">
+          <div class="col-sm-8">
             <span id="passwordRange" class="form-text"> 
               Length is available between 4-16 Character 
             </span>
@@ -17,53 +20,53 @@
       </div>
       
       <fieldset class="row mb-3">
-        <legend class="col-form-label col-sm-2 pt-0 col-5">Includes</legend>
-        <div class="col-sm-10">
+        <legend class="col-form-label col-sm-3 ">Includes</legend>
+        <div class="col-sm-9">
 
           <div class="row mb-2">
-            <div class="col-auto">
-              <input class="form-check-input" type="checkbox" name="lowercase" id="lowercaseChar" value="on">
+            <div class="col-sm-1">
+              <input class="form-check-input" type="checkbox" name="lowercase" id="lowercaseChar" {{#if conditions.lowercase}} checked {{/if}} >
             </div>
-            <div class="col-sm-auto">
+            <div class="col-sm-2">
               <label class="form-check-label" for="lowercaseChar">Lowercase</label>
             </div>
-            <div class="col-sm-auto">
+            <div class="col-sm-9">
               <div class="form-text"> e.g. abcdefg </div>
             </div>
           </div>                                                                 
             
           <div class="row mb-2">
-            <div class="col-auto">
-              <input class="form-check-input" type="checkbox" name="uppercase" id="uppercaseChar" value="on">
+            <div class="col-sm-1">
+              <input class="form-check-input" type="checkbox" name="uppercase" id="uppercaseChar" {{#if conditions.uppercase}} checked {{/if}} >
             </div>
-            <div class="col-auto">
+            <div class="col-sm-2">
               <label class="form-check-label" for="uppercaseChar">Uppercase</label>
             </div>
-            <div class="col-sm-auto">
+            <div class="col-sm-9">
               <div class="form-text"> e.g. ABCDEFG </div>
             </div>
           </div>
 
           <div class="row mb-2">
-            <div class="col-auto">
-              <input class="form-check-input" type="checkbox" name="numbers" id="numberChar" value="on">
+            <div class="col-sm-1">
+              <input class="form-check-input" type="checkbox" name="numbers" id="numberChar" {{#if conditions.numbers}} checked {{/if}}>
             </div>
-            <div class="col-auto">
+            <div class="col-sm-2">
               <label class="form-check-label" for="numberChar">Numbers</label>
             </div>
-            <div class="col-sm-auto">
+            <div class="col-sm-9">
               <div class="form-text"> e.g. 1234567 </div>
             </div>
           </div>
 
           <div class="row mb-2">
-            <div class="col-auto">
-              <input class="form-check-input" type="checkbox" name="symbols" id="symbolChar" value="on">
+            <div class="col-sm-1">
+              <input class="form-check-input" type="checkbox" name="symbols" id="symbolChar" {{#if conditions.symbols}} checked {{/if}}>
             </div>
-            <div class="col-auto">
+            <div class="col-sm-2">
               <label class="form-check-label" for="symbolChar">Symbols</label>
             </div>
-            <div class="col-sm-auto">
+            <div class="col-sm-9">
               <div class="form-text"> e.g. !@~$*# </div>
             </div>
           </div>
@@ -72,12 +75,12 @@
       </fieldset>
 
       <div class="row mb-3">
-        <label for="excludeChar" class="col-sm-2 col-form-label col-sm-2">Exclude Characters</label>
-        <div class="col-sm-10 row align-items-center">
-          <div class="col-3">
-            <input type="text" class="form-control" id="excludeChar" name="exclude" value="on" >
+        <label for="excludeChar" class="col-sm-3 col-form-label col-sm-2">Exclude Characters</label>
+        <div class="col-sm-9 row align-items-center">
+          <div class="col-sm-4 ">
+            <input type="text" class="form-control" id="excludeChar" name="exclude" value="{{ conditions.exclude }}">
           </div>
-          <div class="col-7">
+          <div class="col-sm-8">
             <span id="passwordRange" class="form-text">
               These characters won't appear in the password
             </span>
@@ -85,11 +88,15 @@
         </div>
       </div>
 
-
-      <button type="submit" class="btn btn-primary mt-3" >Generate</button>
-
-
-
+        {{#if password}}
+        <div class="card bg-warning bg-opacity-25 col-sm-12" style="color: #ff7518; font-weight:600">
+          <div class="card-body">
+            Your password is: <span style="color:#b25110;">{{ password }}</span>
+          </div>
+        </div>
+        {{/if}}
+      
+        <button type="submit" class="btn btn-warning mt-3 fw-bold mx-auto" style="color:white;">Generate</button>     
+      
     </form>
   </div>
-</div>
